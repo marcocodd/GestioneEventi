@@ -3,6 +3,7 @@ package marco.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import marco.entities.Evento;
+import marco.exceptions.NotFoundExc;
 
 public class EventsDao {
     private final EntityManager em;
@@ -23,7 +24,9 @@ public class EventsDao {
     }
 
     public Evento getById(long eventId) {
+
         Evento foundEvent = em.find(Evento.class, eventId);
+        if (foundEvent == null) throw new NotFoundExc(eventId);
         return foundEvent;
 
     }
