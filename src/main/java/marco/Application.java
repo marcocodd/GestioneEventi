@@ -10,16 +10,16 @@ public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestioneventi");
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
 
         EntityManager em = emf.createEntityManager();
         EventsDao eventsDao = new EventsDao(em);
 
-//        Evento evento2 = new Evento("ProvaEvento2", "18-03-2022", tipoEvento.PUBBLICO, 15);
+//        Evento evento3 = new Evento("ProvaEvento3", "18-03-2021", tipoEvento.PUBBLICO, 23);
 
-//        eventsDao.save(evento2);
-//        System.out.println(eventsDao.getById(2));
-        eventsDao.deleteEventbyId(1);
+//        eventsDao.save(evento3);
+        System.out.println(eventsDao.getById(102));
+//        eventsDao.deleteEventbyId(52);
 
     }
 
